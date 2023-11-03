@@ -1,0 +1,46 @@
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<p>Update Movie</p>
+<form
+    name="form"
+    (ngSubmit)="onSubmit()"
+    #f="ngForm"
+    novalidate
+    >
+
+    <label for="name"> Name: </label>
+    <input [(ngModel)]="form.name" name="name" />
+    <br />
+
+    <label for="year"> Year: </label>
+    <input [(ngModel)]="form.year" name="year" type="number" />
+    <br />
+
+    <label for="genre"> Genre: </label>
+    <select (change)="genreSelection($event)">
+        <option value="0">Select Genre</option>
+        <option *ngFor="let genre of genres" value="{{ genre.id }}">{{ genre.name }}</option>
+    </select>   
+    <br />
+
+    <label for="director"> Director: </label>
+    <input [(ngModel)]="form.director" name="director" />
+    <br />
+
+    <label for="language"> Language: </label>
+    <input [(ngModel)]="form.language" name="language" />
+    <br />
+
+    <label for="description"> Description: </label> <br />
+    <textarea [(ngModel)]="form.description" name="description" cols="30" rows="10"></textarea>
+    <br />
+
+    <div class="form-group">
+        <button class="btn btn-primary btn-block">Update Movie</button>
+    </div>
+</form>

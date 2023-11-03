@@ -1,0 +1,69 @@
+
+<br>
+<br>
+<br>
+<br>
+<a class="nav-link" routerLink="/addmovie">Add Movie</a>
+<a class="nav-link" routerLink="/addshowtime">Add Showtime</a>
+<br>
+<h1>On Theatres</h1>
+
+<select (change)="genreSelection($event)">
+    <option value="0">All Genres</option>
+    <option *ngFor="let genre of genres" value="{{ genre.id }}">{{ genre.name }}</option>
+</select>
+<div class="row">
+  <div class="col-md-4">
+      <input type="text"
+          [(ngModel)]="filters.keyword"
+          name="keyword"
+          (input)="listMovies()" 
+          class="form-control"
+          placeholder="Filter movies"/>
+  </div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Movie</th>
+      <th>Year</th>
+      <th>Genre</th>
+      <th>Description</th>
+      <th>Director</th>
+      <th>Language</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of movies">
+      <td>{{ movie.name }}</td>
+      <td>{{ movie.year }}</td>
+      <td>{{ movie.genre.name }}</td>
+      <td>{{ movie.description }}</td>
+      <td>{{ movie.director }}</td>
+      <td>{{ movie.language }}</td>
+      <td>
+        <button (click)="redirectToMovieShowtimes($event);" value="{{movie.id}}">View Showtimes</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+  <!-- <div class="col-md-4">
+      <a class="btn btn-primary text-light" routerLink="/addexpense">Add Expense</a>
+  </div> -->
+
+<!-- <div> -->
+  <!-- <div class="card mt-1" *ngFor="let movie of movies"> -->
+      <!-- <a routerLink="/editexpense/{{expense.id}}" class="card-body flex"> -->
+          <!-- <span class="text-capitalize font-weight-bold">{{movie.name}}</span> -->
+          <!-- <span class="float-right mr-2 badge badge-pill badge-warning font-weight-bold amount">{{expense.amount | currency: 'INR'}}</span> -->
+      <!-- </a> -->
+      <!-- <div class="card-footer">
+          <button class="btn btn-danger" (click)="deleteExpense(expense.id)" style="width: 10%;">Delete</button>
+      </div> -->
+  <!-- </div> -->
+<!-- </div> -->

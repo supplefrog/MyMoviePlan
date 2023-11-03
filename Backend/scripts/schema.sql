@@ -1,0 +1,1 @@
+CREATE DATABASE my_movie_plan;

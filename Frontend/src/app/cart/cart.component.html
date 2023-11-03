@@ -1,0 +1,91 @@
+<p>My Cart</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Movie</th>
+      <th>Time</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cartItem of cartItems">
+      <td>{{ cartItem.productName }}</td>
+      <td>{{ cartItem.time }}</td>
+      <td>{{ cartItem.quantity }}</td>
+      <td>{{ cartItem.price | currency }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>{{ total | currency }}</th>
+    </tr>
+  </tfoot>
+</table>
+
+<br />
+<button type="button" class="btn btn-primary-outline pull-right" (click)="btnClick();"><i class="fa fa-plus"></i> Payment </button>    
+
+
+
+<!--
+<div class="row">
+  <div class="col-12" *ngFor="let cartItem of items; let i = index">
+    <div class="row" id="{{ cartItem.id }}">
+      <div class="col-6">
+        <div class=" ">
+          {{ cartItem.productName }}
+          <small>( {{ cartItem.price }} ) </small>
+        </div>
+      </div>
+
+      <div class="col-2 p-0">
+        {{cartItem.quantity}}
+      </div>
+
+      <div class="col-2 p-0">
+        <input
+          [(ngModel)]="cartItem.quantity"
+          [ngModelOptions]="{ standalone: true }"
+          min="1"
+          type="number"
+          value="{{ cartItem.quantity }}"
+          name=""
+          class="form-control"
+          change="changeSubTotal(cartItem, i)"
+        />
+      </div>
+
+  
+      <div class="col-2 pr-0">
+        <div #subTotalWrap>{{ "Items Total = $" + (cartItem.price * cartItem.quantity)  }}</div>
+      </div>
+      <div class="col-1 pl-0">
+        <button class="btn btn-secondary" (click)="removeFromCart(cartItem)">
+          x
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <hr />
+    <div>
+      Order Total:
+      <span class="font-weight-bold">{{ total }}</span>
+      <hr />
+      <button class="btn btn-primary" (click)="clearCart(items)">
+        Clear Items
+      </button>
+
+      <button type="button" class="btn btn-primary-outline pull-right" (click)="btnClick();"><i class="fa fa-plus"></i> Payment </button>    
+
+
+    </div>
+  </div>
+</div>
+-->

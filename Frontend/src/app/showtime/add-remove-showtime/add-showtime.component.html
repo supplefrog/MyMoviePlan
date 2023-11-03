@@ -1,0 +1,29 @@
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<p>Add Showtime</p>
+<form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+
+  <label for="movie">Movie: </label>
+  <select name="movie" [(ngModel)]="form.movie">
+    <option *ngFor="let movie of movies" [value]="movie.id">{{ movie.name }}</option>
+  </select>
+  <br>
+
+  <!-- <label for="name"> Name: </label>
+    <input list="showtime" name="showtime">
+    <datalist id="showtime">
+         <option *ngFor="let movie of movies">{{movie.name}} </option>
+    </datalist> -->
+  
+  <label for="time">Time: </label>
+  <input [(ngModel)]="form.time" name="time" type="string" required/>
+  
+  <div class="form-group">
+    <button class="btn btn-primary btn-block">Add Showtime</button>
+  </div>
+</form>
